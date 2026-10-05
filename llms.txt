@@ -1,0 +1,44 @@
+# Caudal · Fontanería
+
+> Demo de una web de fontanería en Madrid Oeste: fugas de agua, desatascos, calentadores y calderas, calefacción, reformas de baño y urgencias. Caudal es un negocio ficticio: es una demostración comercial de WhiteMoon Agencia IA.
+
+## Contacto (datos de ejemplo)
+- Teléfono: +34 643 199 580 (es el de WhiteMoon Agencia IA)
+- WhatsApp: https://wa.me/34643199580
+- Correo: comercial@whitemoon.es (es el de WhiteMoon Agencia IA)
+- Dirección: Calle de ejemplo 12, 28220 Majadahonda, Madrid (dirección ficticia)
+- Horario: lunes a viernes, de 9:00 a 18:00 (horario de ejemplo)
+- Web: https://nexusforgeia.github.io/WHITEMOON-FONTANERIA-GENERAL/
+
+## Servicios
+- Fugas de agua: goteos, manchas de humedad y tuberías que pierden. Se localiza el punto de la fuga y se repara o se sustituye el tramo.
+- Desatascos: fregaderos, lavabos, duchas, inodoros y bajantes.
+- Calentadores y calderas: instalación, sustitución y reparación de calentadores, termos eléctricos y calderas.
+- Calefacción: radiadores, purgados, llaves y válvulas, y circuitos de calefacción por agua.
+- Reformas de baño: cambio de bañera por plato de ducha, sanitarios, grifería y fontanería del baño.
+- Urgencias: fugas que no paran y atascos que desbordan se atienden por teléfono.
+
+## Cómo se trabaja una avería
+1. El cliente cuenta qué pasa, por teléfono, por WhatsApp o con el asistente de la web.
+2. Se revisa la instalación y se busca el origen de la avería.
+3. Se da el presupuesto antes de empezar y decide el cliente.
+4. Se hace la reparación y se comprueba antes de recoger.
+
+## Urgencias
+- Si huele a gas: llamar al 112 y después al teléfono de la empresa.
+- Si hay una fuga fuerte de agua: llamar al teléfono de la empresa.
+
+## Preguntas frecuentes
+- ¿Cuánto cuesta una reparación? Depende de lo que se encuentre al ver la avería, así que en esta web no hay importes. El presupuesto se da antes de empezar y decides tú.
+- ¿Qué hago si huele a gas? Llama al 112 y después a nuestro teléfono, el 643 199 580.
+- ¿Y si tengo una fuga fuerte de agua? Llámanos al 643 199 580: por teléfono se atiende antes que por el chat.
+- ¿Cómo pido una visita? Por teléfono, por WhatsApp o con el asistente de la web. Dejas tu nombre y tu teléfono y te llamamos para ver la avería.
+- ¿Con quién hablo en el chat? Con un asistente automático, no con una persona. Toma nota del aviso y lo pasa al equipo; no da precios ni plazos.
+- ¿Caudal es una empresa real? No. Caudal es un negocio ficticio: esta web es una demostración de WhiteMoon Agencia IA. El teléfono y el correo que aparecen son los de WhiteMoon.
+
+## Notas
+- Esta web no publica precios: lo que cuesta una avería depende de lo que se encuentre al verla.
+- Tampoco publica reseñas, testimonios, casos de éxito, certificaciones ni cifras de rendimiento.
+- El asistente de la web es automático y guionizado (no es una persona ni un modelo de lenguaje). Pregunta el servicio, el nombre y el teléfono, y pasa el aviso al equipo. No da precios ni plazos.
+- Las fotografías son de Pexels (licencia Pexels) y no representan instalaciones, trabajos ni clientes reales.
+- Es una demo comercial de WhiteMoon Agencia IA (https://whitemoon.es). «Caudal · Fontanería» no es una empresa real y nada de lo que aparece es una oferta.
