@@ -31,6 +31,16 @@
   <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
   <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   <symbol id="ic-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="ic-drain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5V9M12 15v5.5M3.5 12H9M15 12h5.5"/></symbol>
+  <symbol id="ic-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.6 3.2 4.8 5.2 4.8 10.2a4.8 4.8 0 0 1-9.6 0c0-1.8.8-3.1 1.8-4.2.3 1.3 1 2.1 1.9 2.5C10.5 8.5 10.8 5.5 12 3z"/></symbol>
+  <symbol id="ic-radiator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="11" rx="2"/><path d="M7.5 6v11M12 6v11M16.5 6v11M6 17v2.5M18 17v2.5"/></symbol>
+  <symbol id="ic-bath" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18v2.5a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 14.5z"/><path d="M6 12V6.5A2.5 2.5 0 0 1 8.5 4c1.2 0 2.2.8 2.4 2M7 19l-1 2M17 19l1 2"/></symbol>
+  <symbol id="ic-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.3-4.3"/></symbol>
+  <symbol id="ic-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17H13"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 </svg>
 
 <!-- ===================== NAV ===================== -->
@@ -42,6 +52,8 @@
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
       <a href="#top" class="active">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="nav-cta">
@@ -52,6 +64,8 @@
 </header>
 <div class="mobile-menu on-dark" id="mobileMenu" inert>
   <a href="#top">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#proceso">Proceso</a>
   <a href="#contacto">Contacto</a>
   <a class="btn" href="tel:+34643199580" data-demo-href="tel"><svg aria-hidden="true"><use href="#ic-phone"/></svg><span>Llamar al <span data-demo="telefono">643 199 580</span></span></a>
 </div>
@@ -78,13 +92,149 @@
       <p class="hero-desc hero-in">Reparamos fugas, desatascamos, instalamos calentadores y calderas, revisamos la calefacción y reformamos baños. <strong>Caudal es un negocio ficticio</strong>: esta web enseña cómo quedaría la de una fontanería real.</p>
       <div class="hero-actions hero-in">
         <a class="btn" href="tel:+34643199580" data-demo-href="tel"><svg aria-hidden="true"><use href="#ic-phone"/></svg><span>Llamar al <span data-demo="telefono">643 199 580</span></span></a>
-        <a class="btn btn--ghost" href="#contacto"><svg aria-hidden="true"><use href="#ic-arrow-down"/></svg>Ver datos de contacto</a>
+        <a class="btn btn--ghost" href="#servicios"><svg aria-hidden="true"><use href="#ic-arrow-down"/></svg>Ver servicios</a>
       </div>
       <p class="hero-contact hero-in">
         <a href="https://wa.me/34643199580" data-demo-href="wa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ic-wa"/></svg>WhatsApp</a>
         <a href="mailto:comercial@whitemoon.es" data-demo-href="mailto"><svg aria-hidden="true"><use href="#ic-mail"/></svg><span data-demo="email">comercial@whitemoon.es</span></a>
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS ===================== -->
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Lo que arreglamos</h2>
+      <p>Seis trabajos, de la gota que no para a la reforma completa del baño. En esta página no hay importes: lo que cuesta una avería depende de lo que se encuentre al verla.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-media">
+          <picture>
+            <source type="image/webp" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" srcset="assets/img/svc-fugas-400.webp 400w, assets/img/svc-fugas.webp 720w">
+            <img src="assets/img/svc-fugas-400.jpg" srcset="assets/img/svc-fugas-400.jpg 400w, assets/img/svc-fugas.jpg 720w" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" alt="Caño cromado de un grifo con una gota de agua a punto de caer" width="720" height="440" loading="lazy" decoding="async">
+          </picture>
+          <span class="svc-tag"><svg aria-hidden="true"><use href="#ic-drop"/></svg>Fugas</span>
+        </div>
+        <div class="svc-body">
+          <h3>Fugas de agua</h3>
+          <p>Goteos, manchas de humedad y tuberías que pierden. Se localiza el punto exacto de la fuga y se repara o se sustituye el tramo.</p>
+          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Fugas de agua">Consultar<span class="sr-only"> sobre fugas de agua</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media">
+          <picture>
+            <source type="image/webp" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" srcset="assets/img/svc-desatascos-400.webp 400w, assets/img/svc-desatascos.webp 720w">
+            <img src="assets/img/svc-desatascos-400.jpg" srcset="assets/img/svc-desatascos-400.jpg 400w, assets/img/svc-desatascos.jpg 720w" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" alt="Desagüe cromado de un lavabo blanco visto desde arriba" width="720" height="440" loading="lazy" decoding="async">
+          </picture>
+          <span class="svc-tag"><svg aria-hidden="true"><use href="#ic-drain"/></svg>Desagües</span>
+        </div>
+        <div class="svc-body">
+          <h3>Desatascos</h3>
+          <p>Fregaderos, lavabos, duchas, inodoros y bajantes que no tragan. Se desatasca y se mira por qué se había atascado.</p>
+          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Desatascos">Consultar<span class="sr-only"> sobre desatascos</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media">
+          <picture>
+            <source type="image/webp" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" srcset="assets/img/svc-calentadores-400.webp 400w, assets/img/svc-calentadores.webp 720w">
+            <img src="assets/img/svc-calentadores-400.jpg" srcset="assets/img/svc-calentadores-400.jpg 400w, assets/img/svc-calentadores.jpg 720w" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" alt="Caldera mural blanca en la pared de una cocina, con sus llaves y tuberías debajo" width="720" height="440" loading="lazy" decoding="async">
+          </picture>
+          <span class="svc-tag"><svg aria-hidden="true"><use href="#ic-flame"/></svg>Agua caliente</span>
+        </div>
+        <div class="svc-body">
+          <h3>Calentadores y calderas</h3>
+          <p>Instalación, sustitución y reparación de calentadores, termos eléctricos y calderas.</p>
+          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Calentadores y calderas">Consultar<span class="sr-only"> sobre calentadores y calderas</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media">
+          <picture>
+            <source type="image/webp" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" srcset="assets/img/svc-calefaccion-400.webp 400w, assets/img/svc-calefaccion.webp 720w">
+            <img src="assets/img/svc-calefaccion-400.jpg" srcset="assets/img/svc-calefaccion-400.jpg 400w, assets/img/svc-calefaccion.jpg 720w" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" alt="Radiador de agua sobre una pared de ladrillo pintado, con su llave a la derecha" width="720" height="440" loading="lazy" decoding="async">
+          </picture>
+          <span class="svc-tag"><svg aria-hidden="true"><use href="#ic-radiator"/></svg>Calefacción</span>
+        </div>
+        <div class="svc-body">
+          <h3>Calefacción</h3>
+          <p>Radiadores que no calientan, purgados, llaves y válvulas, y circuitos de calefacción por agua.</p>
+          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Calefacción">Consultar<span class="sr-only"> sobre calefacción</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media">
+          <picture>
+            <source type="image/webp" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" srcset="assets/img/svc-bano-400.webp 400w, assets/img/svc-bano.webp 720w">
+            <img src="assets/img/svc-bano-400.jpg" srcset="assets/img/svc-bano-400.jpg 400w, assets/img/svc-bano.jpg 720w" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" alt="Baño con ducha de mampara de cristal, sanitarios suspendidos y lavabo sobre encimera" width="720" height="440" loading="lazy" decoding="async">
+          </picture>
+          <span class="svc-tag"><svg aria-hidden="true"><use href="#ic-bath"/></svg>Reformas</span>
+        </div>
+        <div class="svc-body">
+          <h3>Reformas de baño</h3>
+          <p>Cambio de bañera por plato de ducha, sanitarios, grifería y la fontanería completa del baño.</p>
+          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Reformas de baño">Consultar<span class="sr-only"> sobre reformas de baño</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="svc-card svc-card--urg on-dark reveal">
+        <div class="svc-media">
+          <picture>
+            <source type="image/webp" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" srcset="assets/img/svc-urgencias-400.webp 400w, assets/img/svc-urgencias.webp 720w">
+            <img src="assets/img/svc-urgencias-400.jpg" srcset="assets/img/svc-urgencias-400.jpg 400w, assets/img/svc-urgencias.jpg 720w" sizes="(max-width:600px) calc(100vw - 36px), (max-width:900px) calc(50vw - 34px), 380px" alt="Llave fija, latiguillos trenzados y un grifo cromado sobre el plano de una vivienda" width="720" height="440" loading="lazy" decoding="async">
+          </picture>
+          <span class="svc-tag"><svg aria-hidden="true"><use href="#ic-wrench"/></svg>Urgencias</span>
+        </div>
+        <div class="svc-body">
+          <h3>Urgencias</h3>
+          <p>Una fuga que no para o un atasco que desborda no pueden esperar: llama y te decimos cuándo podemos ir. Si huele a gas, llama primero al 112.</p>
+          <div class="svc-foot"><a class="svc-cta" href="tel:+34643199580" data-demo-href="tel"><svg aria-hidden="true"><use href="#ic-phone"/></svg><span>Llamar al <span data-demo="telefono">643 199 580</span></span></a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESO ===================== -->
+<section class="sec sec--soft" id="proceso">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Cómo se trabaja una avería</h2>
+      <p>Cuatro pasos, siempre en este orden.</p>
+    </div>
+    <ol class="proc">
+      <li class="proc-c reveal">
+        <span class="proc-n" aria-hidden="true">1</span>
+        <div>
+          <h3><svg aria-hidden="true"><use href="#ic-chat"/></svg>Nos cuentas qué pasa</h3>
+          <p>Por teléfono o por WhatsApp: qué falla, desde cuándo y en qué parte de la casa. Una foto ayuda.</p>
+        </div>
+      </li>
+      <li class="proc-c reveal">
+        <span class="proc-n" aria-hidden="true">2</span>
+        <div>
+          <h3><svg aria-hidden="true"><use href="#ic-search"/></svg>Vamos a verlo</h3>
+          <p>Se revisa la instalación y se busca el origen de la avería, no solo lo que se ve.</p>
+        </div>
+      </li>
+      <li class="proc-c reveal">
+        <span class="proc-n" aria-hidden="true">3</span>
+        <div>
+          <h3><svg aria-hidden="true"><use href="#ic-file"/></svg>Presupuesto antes de empezar</h3>
+          <p>Te explicamos qué hay que hacer y lo que cuesta. Nada se toca hasta que tú decides.</p>
+        </div>
+      </li>
+      <li class="proc-c reveal">
+        <span class="proc-n" aria-hidden="true">4</span>
+        <div>
+          <h3><svg aria-hidden="true"><use href="#ic-check"/></svg>Reparación y comprobación</h3>
+          <p>Se hace el trabajo, se prueba que no pierde y se deja la zona recogida.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -105,18 +255,20 @@
         <h2>Navegación</h2>
         <ul>
           <li><a href="#top">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proceso">Proceso</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
       <div>
         <h2>Servicios</h2>
         <ul>
-          <li><span class="row">Fugas de agua</span></li>
-          <li><span class="row">Desatascos</span></li>
-          <li><span class="row">Calentadores y calderas</span></li>
-          <li><span class="row">Calefacción</span></li>
-          <li><span class="row">Reformas de baño</span></li>
-          <li><span class="row">Urgencias</span></li>
+          <li><a href="#servicios">Fugas de agua</a></li>
+          <li><a href="#servicios">Desatascos</a></li>
+          <li><a href="#servicios">Calentadores y calderas</a></li>
+          <li><a href="#servicios">Calefacción</a></li>
+          <li><a href="#servicios">Reformas de baño</a></li>
+          <li><a href="#servicios">Urgencias</a></li>
         </ul>
       </div>
       <div>
@@ -134,7 +286,7 @@
       <h2>Aviso legal y privacidad</h2>
       <p><strong>Demo comercial.</strong> Esta web es una demostración de WhiteMoon Agencia IA. «Caudal · Fontanería» no es una empresa real: el nombre, la dirección y el horario son de ejemplo, y el teléfono y el correo son los de WhiteMoon. Nada de lo que aparece aquí es una oferta ni un presupuesto.</p>
       <p><strong>Sin datos inventados.</strong> Esta demo no publica precios, reseñas, opiniones, casos de éxito, certificaciones ni cifras de rendimiento.</p>
-      <p><strong>Imágenes.</strong> Fotografía de <a href="https://www.pexels.com/photo/copper-pluming-fitting-28169591/" target="_blank" rel="noopener">Nic Wood en Pexels</a>, bajo licencia Pexels. No representa instalaciones ni trabajos reales.</p>
+      <p><strong>Imágenes.</strong> Fotografías de Pexels, bajo licencia Pexels: <a href="https://www.pexels.com/photo/copper-pluming-fitting-28169591/" target="_blank" rel="noopener">Nic Wood</a>, <a href="https://www.pexels.com/photo/close-up-of-water-faucet-dripping-in-bathroom-34295406/" target="_blank" rel="noopener">Zulfugar Karimov</a>, <a href="https://www.pexels.com/photo/stainless-steel-sink-drainage-220612/" target="_blank" rel="noopener">icon0 com</a>, <a href="https://www.pexels.com/photo/white-counter-top-on-gray-kitchen-cabinets-8146317/" target="_blank" rel="noopener">Max Vakhtbovych (caldera)</a>, <a href="https://www.pexels.com/photo/white-radiator-against-textured-brick-wall-36344878/" target="_blank" rel="noopener">Jan van der Wolf</a>, <a href="https://www.pexels.com/photo/spacious-bathroom-interior-with-shower-cabin-and-shiny-tiled-walls-6585765/" target="_blank" rel="noopener">Max Vakhtbovych (baño)</a> y <a href="https://www.pexels.com/photo/wrench-and-pipes-on-sketch-14953886/" target="_blank" rel="noopener">AS Photography</a>. No representan instalaciones, trabajos ni clientes reales.</p>
     </div>
     <div class="foot-bottom">
       <span>© <span id="year">2026</span> Caudal · Fontanería · Negocio ficticio</span>

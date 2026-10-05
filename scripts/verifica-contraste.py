@@ -203,6 +203,15 @@ informe('hero escritorio sobre blanco', peor(blanca, [SCRIM_DESKTOP], (0.0, 0.0,
 informe('hero movil sobre blanco', peor(blanca, [SCRIM_MOVIL], (0, 0, 1, 1)), HERO_TXT)
 informe('nav sobre blanco', peor(blanca, [NAV], (0, 0, 1, 1)), NAV_TXT)
 
+# ---- 4. SERVICIOS: etiqueta sobre la foto ----------------------------------
+# .svc-tag es una pastilla blanca al .95. El texto es oscuro, asi que el peor
+# fondo posible es una foto NEGRA pura debajo: no depende de que foto se use.
+print("\n=== 4 · SERVICIOS · etiqueta de la tarjeta sobre una foto negra pura ===")
+tag = tuple(255 * .95 for _ in range(3))
+print(f"  pastilla blanca .95 sobre negro -> rgb({tag[0]:.0f},{tag[1]:.0f},{tag[2]:.0f})")
+for t in ('text', 'bdeep'):
+    comprueba(f'etiqueta · --{t}', ratio(hex_rgb(P[t]), tag))
+
 # ---------------------------------------------------------------------------
 print()
 if fallos:
