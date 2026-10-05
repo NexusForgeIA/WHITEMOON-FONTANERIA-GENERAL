@@ -1,0 +1,232 @@
+/* =========================================================================
+   Caudal · Fontanería — demo WhiteMoon
+   Tema "agua profunda": azul marino, azul agua y ámbar de urgencia.
+
+   CONTRASTE: lo mide scripts/verifica-contraste.py (pares planos de la
+   paleta + el peor píxel real bajo el texto del hero). Reglas de uso:
+
+     - Sobre claro (#ffffff / --bg2) el texto en color va SIEMPRE en las
+       versiones profundas: --b-dark, --b-deep, --a-deep, --urg.
+     - --b (azul agua) y --a (ámbar) nunca pintan texto sobre claro: solo
+       fondos, bordes y detalles.
+     - El botón ámbar lleva tinta oscura (--text): 9.63:1. Texto blanco
+       sobre ámbar no se usa en ninguna parte.
+     - Sobre marino el texto va en --on-dark / --on-dark-muted, y el acento
+       en --a o --b-sky.
+
+   Breakpoints: 900px y 600px.
+   ========================================================================= */
+
+/* Archivo es una fuente variable (eje de peso 400-800): un solo fichero
+   auto-hospedado, subset latin. Cero peticiones a Google Fonts. */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 800;font-stretch:100%;font-display:swap;src:url(../fonts/archivo-var-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --white:#ffffff;
+  --bg:#ffffff;
+  --bg2:#f2f6fa;             /* sección alterna, blanco frío */
+  --surface:#ffffff;
+
+  --text:#0e1b2a;            /* titulares y texto fuerte */
+  --ink-2:#33445a;           /* párrafos */
+  --muted:#56677b;           /* secundario */
+
+  --navy:#0a2540;            /* hero, nav, footer */
+  --navy-2:#103253;          /* superficie sobre marino */
+  --on-dark:#f2f7fb;
+  --on-dark-muted:#a9bdd0;
+  --line-dark:rgba(242,247,251,.14);
+
+  --b:#2a8fd6;               /* azul agua: SOLO fondo / borde / detalle */
+  --b-dark:#0f5e9c;          /* texto azul sobre claro */
+  --b-deep:#0b4a7d;          /* hover y texto sobre chip azul */
+  --b-sky:#7cc4f4;           /* azul como texto sobre marino */
+  --b-chip:#e6f1fa;
+
+  --a:#ffb224;               /* ámbar: fondo de botón con tinta --text */
+  --a-hover:#f5a300;
+  --a-deep:#8a5200;          /* texto ámbar sobre claro */
+  --a-chip:#fff3dc;
+
+  --urg:#b42318;             /* aviso de urgencia / gas */
+  --urg-chip:#fff1ef;
+
+  --line:#e3e9ef;
+  --line-2:#cfd9e3;
+
+  --sh-sm:0 1px 2px rgba(14,27,42,.05),0 2px 8px rgba(14,27,42,.04);
+  --sh-md:0 2px 6px rgba(14,27,42,.06),0 12px 28px -12px rgba(14,27,42,.16);
+  --sh-lg:0 4px 12px rgba(14,27,42,.07),0 26px 60px -26px rgba(10,37,64,.38);
+
+  --font:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1240px;
+  --nav-h:76px;
+  --ease:cubic-bezier(.16,1,.3,1);
+
+  /* Capas: nav < menú móvil < chat */
+  --z-nav:100;
+  --z-menu:90;
+  --z-chat:200;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink-2);
+  font-family:var(--font);font-size:16px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+::selection{background:var(--b-dark);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input{font:inherit;color:inherit}
+h1,h2{font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-.022em;text-wrap:balance}
+h3,h4{font-weight:700;color:var(--text);line-height:1.2;letter-spacing:-.012em}
+:where(a,button,input,summary,[tabindex]):focus-visible{outline:3px solid var(--b-dark);outline-offset:3px;border-radius:6px}
+/* Sobre marino el foco azul no se vería: pasa a ámbar (8.62:1). */
+.on-dark :where(a,button,input,summary,[tabindex]):focus-visible{outline-color:var(--a)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-80px;z-index:calc(var(--z-nav) + 1);background:var(--a);color:var(--text);font-weight:700;padding:12px 18px;border-radius:10px;transition:top .2s}
+.skip:focus{top:12px}
+
+/* Etiqueta DEMO: acompaña a todo dato de ejemplo (nombre, teléfono,
+   dirección, horario). Tinta oscura sobre ámbar. */
+.demo-tag{display:inline-block;background:var(--a);color:var(--text);font-weight:800;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;line-height:1;padding:4px 7px;border-radius:5px;vertical-align:middle}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:700;font-size:.96rem;letter-spacing:-.005em;
+  min-height:48px;padding:13px 26px;border-radius:10px;border:1.5px solid transparent;
+  background:var(--a);color:var(--text);cursor:pointer;
+  transition:background .25s,transform .2s var(--ease),box-shadow .3s,border-color .25s,color .25s;
+}
+.btn svg{width:19px;height:19px;flex-shrink:0}
+.btn:hover{background:var(--a-hover);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(255,178,36,.7)}
+.btn--ghost{background:transparent;color:var(--b-dark);border-color:var(--line-2)}
+.btn--ghost:hover{background:var(--b-chip);color:var(--b-deep);border-color:var(--b);box-shadow:none}
+.on-dark .btn--ghost{color:var(--on-dark);border-color:rgba(242,247,251,.34)}
+.on-dark .btn--ghost:hover{background:rgba(242,247,251,.1);color:var(--on-dark);border-color:var(--on-dark)}
+.btn--sm{min-height:44px;padding:10px 20px;font-size:.9rem}
+
+/* ---------- NAV ----------
+   Siempre marina: es el mismo color arriba (sobre el hero) y al bajar
+   (sobre las secciones claras), así el texto no cambia de tinta. El .86
+   está medido contra una foto blanca pura debajo: 5.24:1 el peor texto. */
+.nav{position:fixed;inset:0 0 auto 0;z-index:var(--z-nav);background:rgba(10,37,64,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:background .35s,border-color .35s,box-shadow .35s}
+.nav.scrolled{background:rgba(10,37,64,.97);border-bottom-color:var(--line-dark);box-shadow:0 8px 30px -18px rgba(4,16,30,.9)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:var(--nav-h)}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand__mark{width:44px;height:44px;border-radius:12px;background:var(--a);color:var(--text);display:grid;place-items:center;flex-shrink:0}
+.brand__mark svg{width:24px;height:24px}
+.brand__txt b{font-weight:800;font-size:1.22rem;color:var(--on-dark);line-height:1.1;display:block;letter-spacing:-.02em}
+.brand__txt small{font-weight:600;font-size:.74rem;color:var(--on-dark-muted);display:flex;align-items:center;gap:7px;margin-top:3px;line-height:1}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.93rem;font-weight:500;color:var(--on-dark-muted);position:relative;padding:8px 0;transition:color .22s}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;border-radius:2px;background:var(--a);transition:right .28s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--on-dark)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid rgba(242,247,251,.3);background:transparent;cursor:pointer;place-items:center;color:var(--on-dark)}
+.burger svg{width:22px;height:22px}
+.mobile-menu{position:fixed;inset:0;z-index:var(--z-menu);background:var(--navy);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:var(--nav-h) 22px 22px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a:not(.btn){font-weight:800;font-size:1.5rem;color:var(--on-dark);padding:10px 18px;border-radius:12px}
+.mobile-menu a:not(.btn):hover{background:var(--navy-2);color:var(--a)}
+.mobile-menu .btn{margin-top:18px}
+
+/* ---------- HERO ----------
+   Marino con la foto asomando por la derecha. El velo es opaco (>= .96)
+   hasta el 58% del ancho, que es hasta donde puede llegar la columna de
+   texto (.hero-copy: max 54vw + el margen del .wrap). En <=900px el texto
+   ocupa todo el ancho, así que el velo pasa a ser casi plano. */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero-bg .scrim{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(90deg,rgba(10,37,64,.97) 0%,rgba(10,37,64,.96) 58%,rgba(10,37,64,.62) 78%,rgba(10,37,64,.28) 100%),
+  linear-gradient(180deg,rgba(10,37,64,0) 62%,rgba(10,37,64,.92) 100%)}
+/* padding-block y no el atajo: el mismo nodo es .wrap y su margen lateral
+   no se puede pisar. */
+.hero-content{position:relative;z-index:1;width:100%;padding-block:calc(var(--nav-h) + 56px) 64px}
+.hero-copy{max-width:min(620px,54vw)}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.9rem;color:var(--on-dark-muted);margin-bottom:22px}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem);color:var(--on-dark)}
+.hero h1 .accent{color:var(--a);display:block}
+.hero-rot{display:flex;align-items:baseline;gap:.45em;flex-wrap:wrap;margin-top:22px;font-weight:600;font-size:clamp(1.02rem,2.3vw,1.3rem);color:var(--on-dark-muted);min-height:1.65em}
+.hero-rot .rot{color:var(--b-sky);font-weight:700;display:inline-block}
+.hero-rot .rot b{display:inline-block;font-weight:700;transition:opacity .4s,transform .4s var(--ease)}
+.hero-rot .rot b.out{opacity:0;transform:translateY(10px)}
+.hero-desc{max-width:54ch;color:var(--on-dark-muted);font-size:1.06rem;margin-top:20px}
+.hero-desc strong{color:var(--on-dark);font-weight:600}
+.hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.hero-contact{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:28px;font-size:.94rem;color:var(--on-dark-muted)}
+.hero-contact a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--on-dark);padding:6px 0}
+.hero-contact a:hover{color:var(--a)}
+.hero-contact svg{width:17px;height:17px;color:var(--b-sky);flex-shrink:0}
+
+/* Entrada del hero en CSS puro: el contenido es visible sin JS y el LCP no
+   espera a ningún script. */
+.hero-in{animation:heroIn .8s var(--ease) both}
+.hero-in:nth-child(2){animation-delay:.05s}
+.hero-in:nth-child(3){animation-delay:.1s}
+.hero-in:nth-child(4){animation-delay:.15s}
+.hero-in:nth-child(5){animation-delay:.2s}
+.hero-in:nth-child(6){animation-delay:.25s}
+@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ---------- SECCIONES (base para las fases siguientes) ---------- */
+main{display:block}
+section{position:relative}
+section[id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
+
+/* ---------- FOOTER ---------- */
+.foot{background:var(--navy);color:var(--on-dark-muted);padding:72px 0 30px;border-top:1px solid var(--line-dark)}
+.foot .brand__txt b{font-size:1.3rem}
+.foot-grid{display:grid;grid-template-columns:1.5fr .8fr 1fr 1.3fr;gap:44px}
+.foot-brand p{font-size:.93rem;margin-top:18px;max-width:38ch}
+.foot h2{font-weight:700;font-size:.95rem;color:var(--on-dark);letter-spacing:0;line-height:1.3;margin-bottom:14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.foot ul{list-style:none;display:grid;gap:4px}
+.foot ul a,.foot ul span.row{display:inline-flex;align-items:flex-start;gap:10px;font-size:.93rem;padding:5px 0}
+.foot ul a{color:var(--on-dark-muted);transition:color .2s}
+.foot ul a:hover{color:var(--a)}
+.foot ul svg{width:17px;height:17px;color:var(--b-sky);flex-shrink:0;margin-top:4px}
+/* Aviso legal: texto de consulta, cuerpo más pequeño. */
+.foot-legal{margin-top:52px;padding-top:28px;border-top:1px solid var(--line-dark)}
+.foot-legal p{font-size:.84rem;line-height:1.7;max-width:96ch;margin-top:9px}
+.foot-legal p strong{color:var(--on-dark);font-weight:600}
+.foot-legal a{color:var(--b-sky);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.foot-legal a:hover{color:var(--a)}
+.foot-bottom{margin-top:36px;padding-top:22px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.86rem}
+.foot-wm{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--on-dark)}
+.foot-wm img{width:28px;height:auto}
+.foot-wm:hover{color:var(--a)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .wrap{padding:0 22px}
+  .nav-links{display:none}
+  .nav-cta .btn{display:none}
+  .burger{display:grid}
+  .hero-copy{max-width:none}
+  .hero-bg .scrim{background:linear-gradient(180deg,rgba(10,37,64,.93) 0%,rgba(10,37,64,.88) 55%,rgba(10,37,64,.96) 100%)}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media (max-width:600px){
+  :root{--nav-h:68px}
+  .wrap{padding:0 18px}
+  .hero-content{padding-block:calc(var(--nav-h) + 36px) 44px}
+  .hero-actions .btn{flex:1 1 100%}
+  .foot{padding:56px 0 26px}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;align-items:flex-start}
+}
+
+/* ---------- MOVIMIENTO REDUCIDO ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .hero-in{animation:none}
+  .btn:hover{transform:none}
+}
