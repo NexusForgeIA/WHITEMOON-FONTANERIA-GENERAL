@@ -298,6 +298,22 @@ section{position:relative}
 .faq-a{padding:0 24px 22px}
 .faq-a p{color:var(--ink-2);font-size:1rem;max-width:68ch}
 
+/* ---------- CONTACTO ---------- */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.contact-grid .sec-head{margin-bottom:36px}
+.contact-grid .sec-head p .demo-tag{margin-right:6px}
+.contact-info{display:grid;grid-template-columns:1fr 1fr;gap:30px 36px}
+.cinfo h3{font-size:.84rem;font-weight:700;color:var(--b-dark);letter-spacing:0;margin-bottom:6px}
+.cinfo p{color:var(--text);font-size:1.02rem;line-height:1.6}
+.cinfo p:has(a){line-height:1.2}
+.cinfo a{font-weight:600;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}
+.cinfo a:hover{color:var(--b-dark);text-decoration-color:var(--b)}
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:36px 32px;box-shadow:var(--sh-lg)}
+.contact-card h3{font-weight:800;font-size:1.7rem;letter-spacing:-.018em}
+.contact-card > p{color:var(--muted);margin:14px 0 24px;font-size:1rem}
+.contact-card .btn + .btn{margin-top:10px}
+.btn--block{width:100%}
+
 /* ---------- REVEAL ----------
    El contenido es visible por defecto. main.js solo marca .pre (oculto, a la
    espera) en lo que el observer confirma que está por debajo de la pantalla;
@@ -412,6 +428,7 @@ section{position:relative}
   .trust-i:nth-child(n+3){border-top:1px solid var(--line)}
   .urg-grid{grid-template-columns:1fr;gap:40px}
   .split{grid-template-columns:1fr;gap:40px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
   .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media (max-width:600px){
@@ -428,6 +445,8 @@ section{position:relative}
   .trust-grid{grid-template-columns:1fr}
   .trust-i,.trust-i:nth-child(odd){border-left:0;padding:16px 0}
   .trust-i:nth-child(n+2){border-top:1px solid var(--line)}
+  .contact-info{grid-template-columns:1fr;gap:22px}
+  .contact-card{padding:28px 22px}
   .foot{padding:56px 0 26px}
   /* Móvil: el asistente pasa a pantalla completa. Se ancla con left/right y
      no con width:100vw, que incluye la barra de scroll y lo sacaría de
