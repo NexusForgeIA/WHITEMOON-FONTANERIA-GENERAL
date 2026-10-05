@@ -161,8 +161,8 @@ h3,h4{font-weight:700;color:var(--text);line-height:1.2;letter-spacing:-.012em}
 .hero-desc{max-width:54ch;color:var(--on-dark-muted);font-size:1.06rem;margin-top:20px}
 .hero-desc strong{color:var(--on-dark);font-weight:600}
 .hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-.hero-contact{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:28px;font-size:.94rem;color:var(--on-dark-muted)}
-.hero-contact a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--on-dark);padding:6px 0}
+.hero-contact{display:flex;gap:2px 26px;flex-wrap:wrap;margin-top:22px;font-size:.94rem;color:var(--on-dark-muted)}
+.hero-contact a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--on-dark);min-height:44px}
 .hero-contact a:hover{color:var(--a)}
 .hero-contact svg{width:17px;height:17px;color:var(--b-sky);flex-shrink:0}
 
@@ -176,10 +176,64 @@ h3,h4{font-weight:700;color:var(--text);line-height:1.2;letter-spacing:-.012em}
 .hero-in:nth-child(6){animation-delay:.25s}
 @keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 
-/* ---------- SECCIONES (base para las fases siguientes) ---------- */
+/* ---------- SECCIONES ---------- */
 main{display:block}
 section{position:relative}
-section[id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
+/* El hueco para la nav fija lo pone scroll-padding-top en <html>, una sola
+   vez: sumarle un scroll-margin aquí dejaba los anclajes 180px por encima. */
+.sec{padding:104px 0}
+.sec--soft{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:52px;max-width:720px}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+.sec-head p{color:var(--muted);margin-top:18px;font-size:1.06rem;max-width:60ch;text-wrap:pretty}
+
+/* ---------- SERVICIOS ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:var(--b)}
+.svc-media{position:relative;aspect-ratio:18/11;overflow:hidden;background:var(--b-chip)}
+.svc-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.svc-card:hover .svc-media img{transform:scale(1.05)}
+/* La etiqueta es una pastilla casi opaca: su contraste no depende de la foto
+   (blanco .95 sobre negro puro deja --text en 15.5:1). */
+.svc-tag{position:absolute;left:14px;top:14px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.95);border-radius:100px;padding:7px 13px;font-weight:700;font-size:.78rem;color:var(--text);line-height:1.2}
+.svc-tag svg{width:15px;height:15px;color:var(--b-deep)}
+.svc-body{padding:24px 24px 14px;display:flex;flex-direction:column;flex:1}
+.svc-body h3{font-size:1.28rem}
+.svc-body p{color:var(--muted);font-size:.96rem;margin-top:10px;flex:1}
+.svc-foot{margin-top:18px;padding-top:6px;border-top:1px solid var(--line)}
+.svc-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;font-size:.92rem;color:var(--b-dark);transition:gap .28s var(--ease),color .2s}
+.svc-cta svg{width:16px;height:16px;flex-shrink:0}
+.svc-card:hover .svc-cta{gap:13px;color:var(--b-deep)}
+/* Urgencias: la única tarjeta marina, para que se distinga de un vistazo.
+   No promete horario: solo invita a llamar. */
+.svc-card--urg{background:var(--navy);border-color:var(--navy)}
+.svc-card--urg:hover{border-color:var(--a)}
+.svc-card--urg h3{color:var(--on-dark)}
+.svc-card--urg .svc-body p{color:var(--on-dark-muted)}
+.svc-card--urg .svc-foot{border-top-color:var(--line-dark)}
+.svc-card--urg .svc-cta,.svc-card--urg:hover .svc-cta{color:var(--a)}
+.svc-card--urg .svc-tag{background:var(--a)}
+.svc-card--urg .svc-tag svg{color:var(--text)}
+
+/* ---------- PROCESO ----------
+   Aquí los números sí cuentan algo: es una secuencia y el orden importa.
+   Una línea une los pasos; en móvil pasa a vertical. */
+.proc{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px}
+.proc-c{position:relative;padding-top:74px}
+.proc-n{position:absolute;left:0;top:0;width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--on-dark);display:grid;place-items:center;font-weight:800;font-size:1.25rem;line-height:1;z-index:1}
+.proc-c::before{content:"";position:absolute;left:52px;right:-28px;top:25px;height:2px;background:var(--line-2)}
+.proc-c:last-child::before{display:none}
+.proc-c h3{font-size:1.14rem;display:flex;align-items:flex-start;gap:9px}
+.proc-c h3 svg{width:19px;height:19px;color:var(--b-dark);flex-shrink:0;margin-top:2px}
+.proc-c p{color:var(--ink-2);font-size:.95rem;margin-top:10px}
+
+/* ---------- REVEAL ----------
+   El contenido es visible por defecto. main.js solo marca .pre (oculto, a la
+   espera) en lo que el observer confirma que está por debajo de la pantalla;
+   si el observer no llega a ejecutarse, no se oculta nada. */
+.reveal.pre{opacity:0;transform:translateY(24px)}
+.reveal.pre.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
 
 /* ---------- FOOTER ---------- */
 .foot{background:var(--navy);color:var(--on-dark-muted);padding:72px 0 30px;border-top:1px solid var(--line-dark)}
@@ -211,6 +265,11 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
   .burger{display:grid}
   .hero-copy{max-width:none}
   .hero-bg .scrim{background:linear-gradient(180deg,rgba(10,37,64,.93) 0%,rgba(10,37,64,.88) 55%,rgba(10,37,64,.96) 100%)}
+  .sec{padding:76px 0}
+  .sec-head{margin-bottom:40px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .proc{grid-template-columns:1fr 1fr;gap:40px 28px}
+  .proc-c::before{display:none}
   .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media (max-width:600px){
@@ -218,6 +277,12 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
   .wrap{padding:0 18px}
   .hero-content{padding-block:calc(var(--nav-h) + 36px) 44px}
   .hero-actions .btn{flex:1 1 100%}
+  .sec{padding:60px 0}
+  .svc-grid{grid-template-columns:1fr}
+  .proc{grid-template-columns:1fr;gap:0}
+  .proc-c{padding:0 0 34px 72px}
+  .proc-c:last-child{padding-bottom:0}
+  .proc-c::before{display:block;left:25px;right:auto;top:52px;bottom:0;width:2px;height:auto}
   .foot{padding:56px 0 26px}
   .foot-grid{grid-template-columns:1fr}
   .foot-bottom{flex-direction:column;align-items:flex-start}
@@ -228,5 +293,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .hero-in{animation:none}
+  .reveal.pre{opacity:1;transform:none}
+  .svc-card:hover,.svc-card:hover .svc-media img{transform:none}
   .btn:hover{transform:none}
 }
