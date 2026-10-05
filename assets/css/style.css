@@ -282,6 +282,22 @@ section{position:relative}
 .check-row b{display:block;font-weight:700;font-size:1.02rem;color:var(--text);line-height:1.3}
 .check-row span{display:block;color:var(--muted);font-size:.92rem;margin-top:3px}
 
+/* ---------- FAQ ---------- */
+.sec-head--center{margin-inline:auto;text-align:center}
+.faq{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--sh-sm);overflow:hidden}
+.faq-item[open]{border-color:var(--b)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;font-weight:700;font-size:1.05rem;color:var(--text);list-style:none}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q:focus-visible{outline-offset:-3px}
+.faq-q .pl{position:relative;width:20px;height:20px;flex-shrink:0}
+.faq-q .pl::before,.faq-q .pl::after{content:"";position:absolute;left:50%;top:50%;background:var(--b-dark);border-radius:2px;transform:translate(-50%,-50%);transition:transform .28s var(--ease)}
+.faq-q .pl::before{width:14px;height:2px}
+.faq-q .pl::after{width:2px;height:14px}
+.faq-item[open] .faq-q .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-a{padding:0 24px 22px}
+.faq-a p{color:var(--ink-2);font-size:1rem;max-width:68ch}
+
 /* ---------- REVEAL ----------
    El contenido es visible por defecto. main.js solo marca .pre (oculto, a la
    espera) en lo que el observer confirma que está por debajo de la pantalla;
