@@ -41,6 +41,9 @@
   <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></symbol>
   <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="ic-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="17" height="12" rx="3.5"/><path d="M12 3.5v4M8.5 13h.01M15.5 13h.01M9.5 16.4h5"/></symbol>
+  <symbol id="ic-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
 </svg>
 
 <!-- ===================== NAV ===================== -->
@@ -121,7 +124,7 @@
         <div class="svc-body">
           <h3>Fugas de agua</h3>
           <p>Goteos, manchas de humedad y tuberías que pierden. Se localiza el punto exacto de la fuga y se repara o se sustituye el tramo.</p>
-          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Fugas de agua">Consultar<span class="sr-only"> sobre fugas de agua</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+          <div class="svc-foot"><button class="svc-cta" type="button" data-asistente data-servicio="Fugas de agua">Consultar<span class="sr-only"> sobre fugas de agua</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></button></div>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -135,7 +138,7 @@
         <div class="svc-body">
           <h3>Desatascos</h3>
           <p>Fregaderos, lavabos, duchas, inodoros y bajantes que no tragan. Se desatasca y se mira por qué se había atascado.</p>
-          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Desatascos">Consultar<span class="sr-only"> sobre desatascos</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+          <div class="svc-foot"><button class="svc-cta" type="button" data-asistente data-servicio="Desatascos">Consultar<span class="sr-only"> sobre desatascos</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></button></div>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -149,7 +152,7 @@
         <div class="svc-body">
           <h3>Calentadores y calderas</h3>
           <p>Instalación, sustitución y reparación de calentadores, termos eléctricos y calderas.</p>
-          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Calentadores y calderas">Consultar<span class="sr-only"> sobre calentadores y calderas</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+          <div class="svc-foot"><button class="svc-cta" type="button" data-asistente data-servicio="Calentadores y calderas">Consultar<span class="sr-only"> sobre calentadores y calderas</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></button></div>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -163,7 +166,7 @@
         <div class="svc-body">
           <h3>Calefacción</h3>
           <p>Radiadores que no calientan, purgados, llaves y válvulas, y circuitos de calefacción por agua.</p>
-          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Calefacción">Consultar<span class="sr-only"> sobre calefacción</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+          <div class="svc-foot"><button class="svc-cta" type="button" data-asistente data-servicio="Calefacción">Consultar<span class="sr-only"> sobre calefacción</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></button></div>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -177,7 +180,7 @@
         <div class="svc-body">
           <h3>Reformas de baño</h3>
           <p>Cambio de bañera por plato de ducha, sanitarios, grifería y la fontanería completa del baño.</p>
-          <div class="svc-foot"><a class="svc-cta" href="#contacto" data-servicio="Reformas de baño">Consultar<span class="sr-only"> sobre reformas de baño</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a></div>
+          <div class="svc-foot"><button class="svc-cta" type="button" data-asistente data-servicio="Reformas de baño">Consultar<span class="sr-only"> sobre reformas de baño</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></button></div>
         </div>
       </article>
       <article class="svc-card svc-card--urg on-dark reveal">
@@ -286,6 +289,7 @@
       <h2>Aviso legal y privacidad</h2>
       <p><strong>Demo comercial.</strong> Esta web es una demostración de WhiteMoon Agencia IA. «Caudal · Fontanería» no es una empresa real: el nombre, la dirección y el horario son de ejemplo, y el teléfono y el correo son los de WhiteMoon. Nada de lo que aparece aquí es una oferta ni un presupuesto.</p>
       <p><strong>Sin datos inventados.</strong> Esta demo no publica precios, reseñas, opiniones, casos de éxito, certificaciones ni cifras de rendimiento.</p>
+      <p><strong>Asistente y datos.</strong> El chat es un asistente automático guionizado, no una persona. Si dejas tu nombre y tu teléfono, se usan únicamente para devolverte la llamada, los trata WhiteMoon Agencia IA como responsable y no se ceden a terceros ni se usan para publicidad. Puedes pedir su acceso, rectificación o supresión escribiendo a <a href="mailto:comercial@whitemoon.es" data-demo-href="mailto">comercial@whitemoon.es</a>.</p>
       <p><strong>Imágenes.</strong> Fotografías de Pexels, bajo licencia Pexels: <a href="https://www.pexels.com/photo/copper-pluming-fitting-28169591/" target="_blank" rel="noopener">Nic Wood</a>, <a href="https://www.pexels.com/photo/close-up-of-water-faucet-dripping-in-bathroom-34295406/" target="_blank" rel="noopener">Zulfugar Karimov</a>, <a href="https://www.pexels.com/photo/stainless-steel-sink-drainage-220612/" target="_blank" rel="noopener">icon0 com</a>, <a href="https://www.pexels.com/photo/white-counter-top-on-gray-kitchen-cabinets-8146317/" target="_blank" rel="noopener">Max Vakhtbovych (caldera)</a>, <a href="https://www.pexels.com/photo/white-radiator-against-textured-brick-wall-36344878/" target="_blank" rel="noopener">Jan van der Wolf</a>, <a href="https://www.pexels.com/photo/spacious-bathroom-interior-with-shower-cabin-and-shiny-tiled-walls-6585765/" target="_blank" rel="noopener">Max Vakhtbovych (baño)</a> y <a href="https://www.pexels.com/photo/wrench-and-pipes-on-sketch-14953886/" target="_blank" rel="noopener">AS Photography</a>. No representan instalaciones, trabajos ni clientes reales.</p>
     </div>
     <div class="foot-bottom">
@@ -301,7 +305,33 @@
   </div>
 </footer>
 
+<!-- ===================== ASISTENTE IA ===================== -->
+<button id="asistente-open" class="asi-btn" type="button">
+  <svg aria-hidden="true"><use href="#ic-chat"/></svg>
+  <span class="label">Asistente IA</span>
+</button>
+
+<section id="asistente" class="asi-panel" aria-label="Asistente de IA de Caudal Fontanería" inert>
+  <div class="asi-head on-dark">
+    <span class="asi-head__av"><svg aria-hidden="true"><use href="#ic-bot"/></svg></span>
+    <div>
+      <b>Asistente IA</b>
+      <small>Caudal · Fontanería · Demo</small>
+    </div>
+    <button class="asi-head__close" type="button" aria-label="Cerrar el asistente"><svg aria-hidden="true"><use href="#ic-close"/></svg></button>
+  </div>
+  <div class="asi-body" role="log" aria-live="polite" aria-label="Conversación con el asistente" tabindex="0"></div>
+  <div class="asi-quick"></div>
+  <form class="asi-foot" autocomplete="off">
+    <label class="sr-only" for="asistente-input">Escribe tu mensaje para el asistente</label>
+    <input id="asistente-input" type="text" name="mensaje" maxlength="300" placeholder="Escribe tu respuesta…" disabled>
+    <button type="submit" aria-label="Enviar mensaje" disabled><svg aria-hidden="true"><use href="#ic-send"/></svg></button>
+  </form>
+  <p class="asi-note">Demo: lo que escribas aquí llega a WhiteMoon Agencia IA, no a una fontanería real.</p>
+</section>
+
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/asistente.js" defer></script>
 </body>
 </html>
