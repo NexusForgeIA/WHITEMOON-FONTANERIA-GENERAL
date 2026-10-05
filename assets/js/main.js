@@ -80,6 +80,10 @@
     });
   }
 
+  /* ---------- Marquee: duplicar para bucle continuo ---------- */
+  const marquee = $("#marquee");
+  if (marquee && !reduced) marquee.append(...Array.from(marquee.children).map((n) => n.cloneNode(true)));
+
   /* ---------- Palabra rotativa del hero ---------- */
   const rot = $("#rotWord");
   if (rot && !reduced) {

@@ -228,6 +228,28 @@ section{position:relative}
 .proc-c h3 svg{width:19px;height:19px;color:var(--b-dark);flex-shrink:0;margin-top:2px}
 .proc-c p{color:var(--ink-2);font-size:.95rem;margin-top:10px}
 
+/* ---------- BARRA DE CONFIANZA ----------
+   Sin cifras, reseñas ni sellos: solo cómo se trabaja. */
+.trust{background:var(--white);border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-i{display:flex;align-items:center;gap:14px;padding:26px 22px;border-left:1px solid var(--line)}
+.trust-i:first-child{border-left:0;padding-left:0}
+.trust-i .ic{width:42px;height:42px;border-radius:12px;background:var(--b-chip);color:var(--b-deep);display:grid;place-items:center;flex-shrink:0}
+.trust-i .ic svg{width:21px;height:21px}
+.trust-i b{display:block;font-weight:700;font-size:.98rem;color:var(--text);line-height:1.25}
+.trust-i span:not(.ic){display:block;font-size:.86rem;color:var(--muted);margin-top:3px}
+
+/* ---------- MARQUEE ----------
+   Decorativo (aria-hidden): repite los servicios, que ya están en la página.
+   Se para al pasar el ratón y no se mueve con prefers-reduced-motion. */
+.marquee-wrap{background:var(--bg2);border-bottom:1px solid var(--line);padding:13px 0;overflow:hidden}
+.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused}
+.marquee-item{display:inline-flex;align-items:center;gap:6px;padding:0 0 0 26px;font-size:.9rem;color:var(--muted);white-space:nowrap}
+.marquee-item b{color:var(--b-dark);font-weight:700}
+.marquee-item .dot{width:6px;height:6px;border-radius:50%;background:var(--a);margin-left:20px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 /* ---------- REVEAL ----------
    El contenido es visible por defecto. main.js solo marca .pre (oculto, a la
    espera) en lo que el observer confirma que está por debajo de la pantalla;
@@ -336,6 +358,10 @@ section{position:relative}
   .svc-grid{grid-template-columns:1fr 1fr}
   .proc{grid-template-columns:1fr 1fr;gap:40px 28px}
   .proc-c::before{display:none}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-i{padding:20px 18px}
+  .trust-i:nth-child(odd){border-left:0;padding-left:0}
+  .trust-i:nth-child(n+3){border-top:1px solid var(--line)}
   .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media (max-width:600px){
@@ -349,6 +375,9 @@ section{position:relative}
   .proc-c{padding:0 0 34px 72px}
   .proc-c:last-child{padding-bottom:0}
   .proc-c::before{display:block;left:25px;right:auto;top:52px;bottom:0;width:2px;height:auto}
+  .trust-grid{grid-template-columns:1fr}
+  .trust-i,.trust-i:nth-child(odd){border-left:0;padding:16px 0}
+  .trust-i:nth-child(n+2){border-top:1px solid var(--line)}
   .foot{padding:56px 0 26px}
   /* Móvil: el asistente pasa a pantalla completa. Se ancla con left/right y
      no con width:100vw, que incluye la barra de scroll y lo sacaría de
@@ -365,6 +394,7 @@ section{position:relative}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .hero-in{animation:none}
+  .marquee-track{animation:none}
   .reveal.pre{opacity:1;transform:none}
   .svc-card:hover,.svc-card:hover .svc-media img{transform:none}
   .asi-btn:hover,.asi-quick button:hover{transform:none}
