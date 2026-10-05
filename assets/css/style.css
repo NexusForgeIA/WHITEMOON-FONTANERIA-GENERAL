@@ -122,7 +122,7 @@ h3,h4{font-weight:700;color:var(--text);line-height:1.2;letter-spacing:-.012em}
 .brand__mark svg{width:24px;height:24px}
 .brand__txt b{font-weight:800;font-size:1.22rem;color:var(--on-dark);line-height:1.1;display:block;letter-spacing:-.02em}
 .brand__txt small{font-weight:600;font-size:.74rem;color:var(--on-dark-muted);display:flex;align-items:center;gap:7px;margin-top:3px;line-height:1}
-.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
 .nav-links a{font-size:.93rem;font-weight:500;color:var(--on-dark-muted);position:relative;padding:8px 0;transition:color .22s}
 .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;border-radius:2px;background:var(--a);transition:right .28s var(--ease)}
 .nav-links a:hover,.nav-links a.active{color:var(--on-dark)}
@@ -250,6 +250,24 @@ section{position:relative}
 .marquee-item .dot{width:6px;height:6px;border-radius:50%;background:var(--a);margin-left:20px}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ---------- URGENCIAS ----------
+   Banda marina. Solo dice a quién llamar: ni horarios prometidos ni
+   instrucciones técnicas. */
+.sec--navy{background:var(--navy)}
+.urg-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.urg-copy h2{font-size:clamp(2rem,4.4vw,3.2rem);color:var(--on-dark)}
+.urg-copy p{color:var(--on-dark-muted);font-size:1.06rem;margin-top:18px;max-width:52ch}
+.urg-copy .btn{margin-top:30px}
+.urg-list{display:grid;gap:16px}
+.urg-box{display:flex;align-items:flex-start;gap:16px;padding:22px 24px;background:var(--navy-2);border:1px solid var(--line-dark);border-radius:16px}
+.urg-box--gas{border-color:var(--a)}
+.urg-box .ic{width:44px;height:44px;border-radius:12px;background:var(--a);color:var(--text);display:grid;place-items:center;flex-shrink:0}
+.urg-box .ic svg{width:22px;height:22px}
+.urg-box h3{font-size:1.14rem;color:var(--on-dark)}
+.urg-box p{color:var(--on-dark-muted);font-size:1rem;margin-top:6px}
+/* Son los enlaces que se pulsan con prisa: 44px de alto aunque vayan en línea. */
+.urg-box a{color:var(--a);font-weight:700;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
+
 /* ---------- REVEAL ----------
    El contenido es visible por defecto. main.js solo marca .pre (oculto, a la
    espera) en lo que el observer confirma que está por debajo de la pantalla;
@@ -362,6 +380,7 @@ section{position:relative}
   .trust-i{padding:20px 18px}
   .trust-i:nth-child(odd){border-left:0;padding-left:0}
   .trust-i:nth-child(n+3){border-top:1px solid var(--line)}
+  .urg-grid{grid-template-columns:1fr;gap:40px}
   .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media (max-width:600px){

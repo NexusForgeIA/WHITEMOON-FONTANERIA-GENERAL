@@ -122,7 +122,8 @@
       pendiente = false;
       if (!marcas) medir();
       const y = window.scrollY;
-      let actual = marcas[0].id;
+      /* En el hero no hay enlace que marcar: `actual` se queda en null. */
+      let actual = null;
       marcas.forEach((m) => { if (y >= m.top) actual = m.id; });
       /* Al fondo de la página manda la última, aunque sea corta. */
       if (y > 0 && window.innerHeight + y >= document.documentElement.scrollHeight - 2) actual = marcas[marcas.length - 1].id;
