@@ -265,8 +265,10 @@ section{position:relative}
 .urg-box .ic svg{width:22px;height:22px}
 .urg-box h3{font-size:1.14rem;color:var(--on-dark)}
 .urg-box p{color:var(--on-dark-muted);font-size:1rem;margin-top:6px}
-/* Son los enlaces que se pulsan con prisa: 44px de alto aunque vayan en línea. */
-.urg-box a{color:var(--a);font-weight:700;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
+/* Son los enlaces que se pulsan con prisa: 44px de alto aunque vayan en
+   línea. El padding vertical de un elemento en línea agranda la zona de toque
+   sin separar los renglones. */
+.urg-box a{color:var(--a);font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:14px 0}
 
 /* Lista de filas con icono: la comparten «Cómo trabajamos» y «Asistente». */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -305,8 +307,8 @@ section{position:relative}
 .contact-info{display:grid;grid-template-columns:1fr 1fr;gap:30px 36px}
 .cinfo h3{font-size:.84rem;font-weight:700;color:var(--b-dark);letter-spacing:0;margin-bottom:6px}
 .cinfo p{color:var(--text);font-size:1.02rem;line-height:1.6}
-.cinfo p:has(a){line-height:1.2}
-.cinfo a{font-weight:600;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}
+.cinfo p:has(a){line-height:2.5}
+.cinfo a{font-weight:600;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;padding:14px 0}
 .cinfo a:hover{color:var(--b-dark);text-decoration-color:var(--b)}
 .contact-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:36px 32px;box-shadow:var(--sh-lg)}
 .contact-card h3{font-weight:800;font-size:1.7rem;letter-spacing:-.018em}
@@ -447,7 +449,8 @@ section{position:relative}
   .trust-i:nth-child(n+2){border-top:1px solid var(--line)}
   .contact-info{grid-template-columns:1fr;gap:22px}
   .contact-card{padding:28px 22px}
-  .foot{padding:56px 0 26px}
+  /* Hueco al final para que el botón flotante del asistente no tape el pie. */
+  .foot{padding:56px 0 92px}
   /* Móvil: el asistente pasa a pantalla completa. Se ancla con left/right y
      no con width:100vw, que incluye la barra de scroll y lo sacaría de
      pantalla. */
