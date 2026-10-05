@@ -202,7 +202,7 @@ section{position:relative}
 .svc-body h3{font-size:1.28rem}
 .svc-body p{color:var(--muted);font-size:.96rem;margin-top:10px;flex:1}
 .svc-foot{margin-top:18px;padding-top:6px;border-top:1px solid var(--line)}
-.svc-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;font-size:.92rem;color:var(--b-dark);transition:gap .28s var(--ease),color .2s}
+.svc-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0;border:0;background:none;cursor:pointer;font-weight:700;font-size:.92rem;color:var(--b-dark);transition:gap .28s var(--ease),color .2s}
 .svc-cta svg{width:16px;height:16px;flex-shrink:0}
 .svc-card:hover .svc-cta{gap:13px;color:var(--b-deep)}
 /* Urgencias: la única tarjeta marina, para que se distinga de un vistazo.
@@ -257,6 +257,72 @@ section{position:relative}
 .foot-wm img{width:28px;height:auto}
 .foot-wm:hover{color:var(--a)}
 
+/* ---------- ASISTENTE IA ----------
+   Pares de color (todos medidos en scripts/verifica-contraste.py):
+   cabecera --on-dark / --on-dark-muted sobre --navy · burbuja del asistente
+   --ink-2 sobre --bg2 · burbuja del visitante blanco sobre --b-dark ·
+   respuestas rápidas y aviso de resultado --b-deep sobre --b-chip ·
+   alerta --urg sobre --urg-chip · nota --muted sobre --bg2. */
+.asi-btn{
+  position:fixed;right:24px;bottom:24px;z-index:var(--z-chat);
+  display:inline-flex;align-items:center;gap:10px;
+  height:56px;padding:0 22px 0 18px;border-radius:100px;border:0;cursor:pointer;
+  background:var(--a);color:var(--text);font-weight:700;font-size:.96rem;
+  box-shadow:0 16px 38px -14px rgba(10,37,64,.75);transition:transform .28s var(--ease),background .28s;
+}
+.asi-btn[hidden]{display:none}
+.asi-btn:hover{transform:translateY(-3px);background:var(--a-hover)}
+.asi-btn svg{width:24px;height:24px}
+.asi-panel{
+  position:fixed;right:24px;bottom:24px;z-index:calc(var(--z-chat) + 1);
+  width:392px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100svh - 40px);
+  background:var(--white);border:1px solid var(--line);border-radius:18px;
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 40px 90px -30px rgba(10,37,64,.55),0 0 0 1px rgba(14,27,42,.04);
+  opacity:0;transform:translateY(24px) scale(.97);pointer-events:none;visibility:hidden;
+  transition:opacity .3s,transform .3s var(--ease),visibility 0s .3s;
+}
+.asi-panel.open{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .3s,transform .3s var(--ease)}
+.asi-head{display:flex;align-items:center;gap:13px;padding:16px 18px;background:var(--navy)}
+.asi-head__av{width:44px;height:44px;border-radius:12px;background:var(--a);color:var(--text);display:grid;place-items:center;flex-shrink:0}
+.asi-head__av svg{width:24px;height:24px}
+.asi-head b{display:block;font-weight:800;font-size:1.08rem;color:var(--on-dark);line-height:1.2}
+.asi-head small{display:block;color:var(--on-dark-muted);font-size:.8rem;margin-top:2px}
+.asi-head__close{margin-left:auto;width:44px;height:44px;border-radius:10px;border:1px solid rgba(242,247,251,.3);background:transparent;color:var(--on-dark);cursor:pointer;display:grid;place-items:center;flex-shrink:0;transition:background .2s}
+.asi-head__close:hover{background:rgba(242,247,251,.12)}
+.asi-head__close svg{width:18px;height:18px}
+.asi-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.asi-msg{max-width:86%;padding:12px 15px;border-radius:16px;font-size:.94rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;animation:msgin .32s ease}
+@keyframes msgin{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.asi-msg.bot{align-self:flex-start;background:var(--bg2);border:1px solid var(--line);color:var(--ink-2);border-bottom-left-radius:5px}
+.asi-msg.user{align-self:flex-end;background:var(--b-dark);color:#fff;font-weight:500;border-bottom-right-radius:5px}
+/* Aviso de urgencia: borde completo y fondo tintado, y además lo dice el
+   texto; el color no es lo único que lo distingue. */
+.asi-msg.alerta{background:var(--urg-chip);border-color:var(--urg);color:var(--urg);font-weight:700}
+.asi-typing{align-self:flex-start;display:flex;gap:5px;padding:14px 16px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px}
+.asi-typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:typing 1.2s infinite}
+.asi-typing span:nth-child(2){animation-delay:.2s}
+.asi-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typing{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.asi-ok{align-self:stretch;flex-shrink:0;display:flex;align-items:flex-start;gap:12px;padding:15px 16px;border:1px solid var(--b);border-radius:16px;background:var(--b-chip);animation:msgin .32s ease}
+.asi-ok__ic{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--b-dark);color:#fff;display:grid;place-items:center}
+.asi-ok__ic svg{width:17px;height:17px}
+.asi-ok p{margin:3px 0 0;font-weight:700;font-size:.94rem;line-height:1.45;color:var(--b-deep)}
+.asi-quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
+.asi-quick:empty{padding:0}
+.asi-quick button{font-size:.86rem;font-weight:600;min-height:40px;border:1px solid var(--line-2);background:var(--b-chip);color:var(--b-deep);border-radius:100px;padding:8px 15px;cursor:pointer;transition:background .22s,border-color .22s,transform .18s}
+.asi-quick button:hover{background:#d6e8f6;border-color:var(--b);transform:translateY(-2px)}
+.asi-foot{display:flex;gap:9px;padding:13px 16px;border-top:1px solid var(--line);background:var(--bg2)}
+.asi-foot input{flex:1;min-width:0;min-height:46px;background:var(--white);border:1px solid var(--line-2);border-radius:12px;padding:11px 14px;font-size:1rem;color:var(--text);transition:border-color .22s}
+.asi-foot input::placeholder{color:var(--muted);opacity:1}
+.asi-foot input:focus{border-color:var(--b-dark)}
+.asi-foot input:disabled{background:var(--bg2)}
+.asi-foot button{width:46px;flex-shrink:0;border:0;border-radius:12px;background:var(--b-dark);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .22s,opacity .2s}
+.asi-foot button:hover:not(:disabled){background:var(--b-deep)}
+.asi-foot button:disabled{opacity:.45;cursor:default}
+.asi-foot button svg{width:19px;height:19px}
+.asi-note{text-align:center;padding:8px 14px 10px;font-size:.74rem;line-height:1.4;color:var(--muted);background:var(--bg2);border-top:1px solid var(--line)}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
   .wrap{padding:0 22px}
@@ -284,6 +350,12 @@ section{position:relative}
   .proc-c:last-child{padding-bottom:0}
   .proc-c::before{display:block;left:25px;right:auto;top:52px;bottom:0;width:2px;height:auto}
   .foot{padding:56px 0 26px}
+  /* Móvil: el asistente pasa a pantalla completa. Se ancla con left/right y
+     no con width:100vw, que incluye la barra de scroll y lo sacaría de
+     pantalla. */
+  .asi-panel{left:0;right:0;bottom:0;width:auto;max-width:none;height:100svh;max-height:100svh;border-radius:0;border:0}
+  .asi-btn{right:16px;bottom:16px;width:56px;padding:0;justify-content:center}
+  .asi-btn .label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .foot-grid{grid-template-columns:1fr}
   .foot-bottom{flex-direction:column;align-items:flex-start}
 }
@@ -295,5 +367,7 @@ section{position:relative}
   .hero-in{animation:none}
   .reveal.pre{opacity:1;transform:none}
   .svc-card:hover,.svc-card:hover .svc-media img{transform:none}
+  .asi-btn:hover,.asi-quick button:hover{transform:none}
+  .asi-panel{transform:none}
   .btn:hover{transform:none}
 }
